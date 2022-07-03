@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # URL: https://github.com/github/gitignore/blob/main/Unity.gitignore
 # Date of Retrieval: 06/29/2022
 
 .DS_Store
 
+=======
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+>>>>>>> 3a6afb2 (Updating requirements)
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
