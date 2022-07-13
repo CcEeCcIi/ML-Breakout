@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (_currentLevel != null && _currentLevel.transform.childCount == 0 && !_isSwitchingState)
                 {
+                    _currentBall.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
                     SwitchState(State.LEVELCOMPLETED);
                 }
                 break;
