@@ -145,7 +145,6 @@ public class GameManager : MonoBehaviour
                 Destroy(_currentLevel);
                 panelGameOver.SetActive(true);
                 SwitchState(State.RESET);
-                //Debug.Log("test");
                 break;
         }
     }

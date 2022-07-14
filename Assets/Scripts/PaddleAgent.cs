@@ -1,4 +1,5 @@
 using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,17 +11,22 @@ public class PaddleAgent : Agent
 {
     float paddleY = -17f;
     float moveSpeed = 50f;
-    float leftLimit = -33f;
-    float rightLimit = 33f;
-    //float lastPositionDifference;
+    //float leftLimit = -33f;
+    //float rightLimit = 33f;
+    //float lastPositionDifference;\
+    string brickName;
     private int rewardHitBrick;
     private int rewardHitBall;
     private int _prevBall = -1; //initialize to -1
     private int _currBall;
     private int _prevScore = 0; //initialize to 0, to avoid lower than initial current score
     private int _currScore;
+    private int brickTotal = 59; // 59 bricks in level1_easier
+    //private int brickTotal = 265; // 265 bricks in level1 
     //private int brickCount = 0; //how many bricks being hit before ball colliding with paddle
     GameObject currentBall;
+    GameObject brick;
+
     //bool sameBallTrip; //mark if events happen in the same ball trip (time between hitting the paddles)
     //bool wallHit = false;
 
@@ -50,11 +56,27 @@ public class PaddleAgent : Agent
         // Move paddle right, left, or hold
         if (moveX == 1)
         {
-            transform.localPosition += new Vector3(1 * Time.deltaTime * moveSpeed, 0, 0);
+            // Keep in the right wall
+            if (transform.localPosition.x + (1 * Time.deltaTime * moveSpeed) + rightWallTransform.localScale.x + transform.localScale.x / 2 > 35)
+            {
+                Debug.Log("out of right boundary");
+            }
+            else
+            {
+                transform.localPosition += new Vector3(1 * Time.deltaTime * moveSpeed, 0, 0);
+            }
         }
         else if (moveX == 2)
         {
-            transform.localPosition += new Vector3(-1 * Time.deltaTime * moveSpeed, 0, 0);
+            // Keep in the left wall
+            if (transform.localPosition.x + (-1 * Time.deltaTime * moveSpeed) + (-1 * rightWallTransform.localScale.x) + (-1 * transform.localScale.x / 2) < -35)
+            {
+                Debug.Log("out of left boundary");
+            }
+            else
+            {
+                transform.localPosition += new Vector3(-1 * Time.deltaTime * moveSpeed, 0, 0);
+            }
         }
         else
         {
@@ -85,7 +107,22 @@ public class PaddleAgent : Agent
         //sensor.AddObservation(targetTransform.localPosition - ceilingTransform.localPosition);
         //sensor.AddObservation(transform.localPosition); // This is the 'transform' localPosition of the agent object, the paddle
         //sensor.AddObservation(targetTransform.localPosition); // This is the localPosition of a target which is the ball
+
+        //Observe positions of every active brick
+        for (int i = 0; i <= brickTotal; i++)
+        {
+            brickName = "Brick1_big_version (" + i + ")";
+            brick = GameObject.Find(brickName);
+            if (brick != null)
+            {
+                Debug.Log(brick.name + ": " + brick.transform.localPosition);
+                sensor.AddObservation(brick.transform.localPosition.x);
+                sensor.AddObservation(brick.transform.localPosition.y);
+            }
+        }
     }
+
+
 
 
     /*
@@ -176,4 +213,7 @@ public class PaddleAgent : Agent
         currentBall = GameManager.Instance.currentBall;
         return currentBall;
     }
+
+
+
 }
