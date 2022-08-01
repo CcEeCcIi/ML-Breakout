@@ -1,7 +1,9 @@
 # ML-Breakout
 A replica of Atari’s Breakout and a neural net with reinforcement learning algorithms from Unity ML-Agents to play the game.
 
-## Human VS AI mode (left: human player, right: AI player)
+## Human VS AI mode
+  *left*:   human player <br />
+  *right*:  AI player
 
 https://user-images.githubusercontent.com/57883154/182199329-1b4b74fe-a3bb-4176-b450-c1d0863a5a5d.MP4
 
@@ -11,4 +13,14 @@ https://user-images.githubusercontent.com/57883154/182199329-1b4b74fe-a3bb-4176-
 
 ## AI training
 
-This AI is trained by 
+  *Agent*: paddle <br />
+  *Action Inputs*: left, right <br />
+  
+  *Observations*: paddle position, ball position, add in camera sensor <br />
+  *Reward*: catch a ball, hit a brick <br />
+  
+  *Training time*: 8M steps <br />
+  
+  
+
+
