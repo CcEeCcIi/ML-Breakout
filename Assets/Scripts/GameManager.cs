@@ -525,7 +525,7 @@ public class GameManager : MonoBehaviour
                 {
                     SwitchState(State.GAMEOVER2);
                 }*/
-                /*
+                
                 if (currentBall2 == null)
                 {
                     if (Balls2 > 0)
@@ -537,7 +537,7 @@ public class GameManager : MonoBehaviour
                     {
                         SwitchState(State.GAMEOVER2);
                     }
-                }*/
+                }
                 if (_currentLevel1 != null && _currentLevel1.transform.childCount == 0)
                 {
                     SwitchState(State.LEVELCOMPLETED2_1);
@@ -560,7 +560,7 @@ public class GameManager : MonoBehaviour
                 {
                     SwitchState(State.GAMEOVER2);
                 }*/
-                /*
+                
                 if (_currentBall1 == null)
                 {
                     if (Balls1 > 0)
@@ -571,7 +571,7 @@ public class GameManager : MonoBehaviour
                     {
                         SwitchState(State.GAMEOVER2);
                     }
-                }*/
+                }
                 if (_currentLevel1 != null && _currentLevel1.transform.childCount == 0)
                 {
                     SwitchState(State.LEVELCOMPLETED2_1);
