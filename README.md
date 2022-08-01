@@ -20,6 +20,10 @@ https://user-images.githubusercontent.com/57883154/182199329-1b4b74fe-a3bb-4176-
   *Reward*: catch a ball, hit a brick <br />
   
   *Training time*: 8M steps <br />
+ 
+## Try it!
+
+[PLAY ML-BREAKOUT GAME] (https://simmer.io/@CcEeCcIi/ml-breakout)
   
   
 
